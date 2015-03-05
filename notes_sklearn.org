@@ -1,0 +1,58 @@
+Notes on Scikit-learn
+======================
+
+* problem setting 
+
+  ** supervised learning
+  [[http://scikit-learn.org/stable/supervised_learning.html#supervised-learning]]
+    => classification
+    => regression
+  
+  ** unsupervised learning
+  [[http://scikit-learn.org/stable/unsupervised_learning.html#unsupervised-learning]]
+    => clustering
+    => density estimation
+
+* loading sample datasets
+
+  ** toy datasets
+  [[http://scikit-learn.org/stable/datasets/index.html#toy-datasets]]
+  
+  ** procedure 
+    => import datasets from sklearn
+    => iris = datasets.load_iris()
+    => iris.data             (just samples; always 2D array)
+    => iris.target           (expected output)
+    => iris.DESCR      
+    => iris.feature_names
+    => iris.target_names
+
+*  learning and predicting 
+      
+  ** estimator: predict classes of unseen samples :classification:
+  - in sklearn; estimator implements:
+    => fit(x,y) : train estimator
+    => predict(T) : apply to new sample
+  - example: sklearn.svm.SVC :support_vector_machine_classification:
+  ** procedure:
+  > from sklearn import svm 
+  > clf = svm.SVC(gamma=0.001, C=100.) 
+    #good gamma can be obtained w/ grid-search or cross-validation
+
+    => clf.fit(digits.data[:-1], digits.target[:-1])  #fit with samples except last
+    => clf.predict(digits.data[-1]) # classify last value
+
+* model persistence
+
+  - full working example: [[tutorials/scikit-learn.org/model_persistence.py]]
+  ** PICKLE
+    - less efficient, saves to string
+      => import pickle
+      => s = pickle.dumps(clf)
+      => clf2 = pickle.loads(s)
+
+  ** JOBLIB
+    - heavy duty, saves to disk
+      => from sklearn.externals import joblib
+      => joblib.dump(clf, 'filename.pkl') 
+      => clf = joblib.load('filename.pkl')
