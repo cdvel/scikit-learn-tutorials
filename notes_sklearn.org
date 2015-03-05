@@ -56,3 +56,41 @@ Notes on Scikit-learn
       => from sklearn.externals import joblib
       => joblib.dump(clf, 'filename.pkl') 
       => clf = joblib.load('filename.pkl')
+
+* Statistical inference
+
+** Machine learning tasks:
+ - Predicting function linking different observations
+ - Classify observations
+ - Learning the structure in an unlabeled dataset
+
+** Statistical inference: conclusions from data at hand
+
+** Python ML-related packages (NumPy, SciPy, matplotlib).
+
+** Statistical Learning; setting and estimator objects
+
+*** Datasets
+
+- Represented in 2D arrays (samples vs features) 
+- If not, needs to be preprocessed:
+  - Reshaping data
+    => datasets.load_digits().images.shape
+        => (1797, 8, 8)
+    => data = digits.images.reshape((digits.images.shape[0], -1))
+    => data.shape
+        => (1797, 64)
+
+  
+*** Estimator objects
+
+- learns from data
+  - classification
+  - regression
+  - clustering
+  - transformer
+
+- fit() method: input 2D array
+- parameters
+  - estimator: in constructor
+  - estimated: attributer with _

@@ -5,3 +5,5 @@ Scikit-learn tutorials
   1. Introduction 			[OK]
   2. Statistical Learning 	[  ]
   3. Working with text data [  ]
+
+2. [Scikit-lectures](https://scipy-lectures.github.io/index.html)
